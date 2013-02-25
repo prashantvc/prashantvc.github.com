@@ -10,7 +10,9 @@
 
   
   <meta name="description" content="I wrote this code snippet quite a while ago to make it easy to print a
-UIView from a iOS device. Hope it helps you too. public static class &hellip;">
+UIView from a iOS device. Hope it helps you too. UIViewToImage.csView Raw1
+2
+3 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -109,25 +111,44 @@ UIView from a iOS device. Hope it helps you too. public static class &hellip;">
   <div class="entry-content"><p>I wrote this code snippet quite a while ago to make it easy to print a
 UIView from a iOS device. Hope it helps you too.</p>
 
-<pre><code>public static class Extensions
-{
-    public static UIImage ToImage (this UIView view)
-    {
-        RectangleF canvasRect = view.Bounds;
-        UIGraphics.BeginImageContextWithOptions (canvasRect.Size, false, 0.0f);
+<figure class='code'><figcaption><span>UIViewToImage.cs</span><a href='https://gist.github.com/prashantvc/4657263/raw/a64b8a821b860201e0420c3e735326f80063386a/UIViewToImage.cs'>View Raw</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">Extensions</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="n">UIImage</span> <span class="nf">ToImage</span> <span class="p">(</span><span class="k">this</span> <span class="n">UIView</span> <span class="n">view</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">RectangleF</span> <span class="n">canvasRect</span> <span class="p">=</span> <span class="n">view</span><span class="p">.</span><span class="n">Bounds</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">UIGraphics</span><span class="p">.</span><span class="n">BeginImageContextWithOptions</span> <span class="p">(</span><span class="n">canvasRect</span><span class="p">.</span><span class="n">Size</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">CGContext</span> <span class="n">ctx</span> <span class="p">=</span> <span class="n">UIGraphics</span><span class="p">.</span><span class="n">GetCurrentContext</span> <span class="p">();</span>
+</span><span class='line'>        <span class="n">ctx</span><span class="p">.</span><span class="n">FillRect</span> <span class="p">(</span><span class="n">canvasRect</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">view</span><span class="p">.</span><span class="n">Layer</span><span class="p">.</span><span class="n">RenderInContext</span> <span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">UIImage</span> <span class="n">newImage</span> <span class="p">=</span> <span class="n">UIGraphics</span><span class="p">.</span><span class="n">GetImageFromCurrentImageContext</span> <span class="p">();</span>
+</span><span class='line'>        <span class="n">UIGraphics</span><span class="p">.</span><span class="n">EndImageContext</span> <span class="p">();</span>
+</span><span class='line'>        <span class="n">NSData</span> <span class="n">imgData</span> <span class="p">=</span> <span class="n">newImage</span><span class="p">.</span><span class="n">AsPNG</span> <span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="n">UIImage</span><span class="p">.</span><span class="n">LoadFromData</span> <span class="p">(</span><span class="n">imgData</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-        CGContext ctx = UIGraphics.GetCurrentContext ();
-        ctx.FillRect (canvasRect);
-        view.Layer.RenderInContext (ctx);
-
-        UIImage newImage = UIGraphics.GetImageFromCurrentImageContext ();
-        UIGraphics.EndImageContext ();
-        NSData imgData = newImage.AsPNG ();
-
-        return UIImage.LoadFromData (imgData);
-    }
-}
-</code></pre>
 </div>
   
   
