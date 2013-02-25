@@ -9,8 +9,8 @@
   <meta name="author" content="Prashant Cholachagudda">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="I wrote this code snippet quite a while ago to make it easy to print a
+UIView from a iOS device. Hope it helps you too. public static class &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,63 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/02/25/monotouch-uiview-to-image/">Monotouch: UIView to Image</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-25T22:49:00+05:30" pubdate data-updated="true">Feb 25<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I wrote this code snippet quite a while ago to make it easy to print a
+UIView from a iOS device. Hope it helps you too.</p>
+
+<pre><code>public static class Extensions
+{
+    public static UIImage ToImage (this UIView view)
+    {
+        RectangleF canvasRect = view.Bounds;
+        UIGraphics.BeginImageContextWithOptions (canvasRect.Size, false, 0.0f);
+
+        CGContext ctx = UIGraphics.GetCurrentContext ();
+        ctx.FillRect (canvasRect);
+        view.Layer.RenderInContext (ctx);
+
+        UIImage newImage = UIGraphics.GetImageFromCurrentImageContext ();
+        UIGraphics.EndImageContext ();
+        NSData imgData = newImage.AsPNG ();
+
+        return UIImage.LoadFromData (imgData);
+    }
+}
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/02/25/hello-world/">Hello World</a></h1>
     
     
@@ -125,6 +182,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/25/monotouch-uiview-to-image/">Monotouch: UIView to Image</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/02/25/hello-world/">Hello World</a>

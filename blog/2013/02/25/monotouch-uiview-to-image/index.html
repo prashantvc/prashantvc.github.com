@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello World - Me:ICanWriteCode</title>
+  <title>Monotouch: UIView to Image - Me:ICanWriteCode</title>
   <meta name="author" content="Prashant Cholachagudda">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="I wrote this code snippet quite a while ago to make it easy to print a
+UIView from a iOS device. Hope it helps you too. public static class &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://prashantvc.github.com/blog/2013/02/25/hello-world/">
+  <link rel="canonical" href="http://prashantvc.github.com/blog/2013/02/25/monotouch-uiview-to-image/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hello World</h1>
+      <h1 class="entry-title">Monotouch: UIView to Image</h1>
     
     
       <p class="meta">
@@ -96,14 +96,35 @@
   
 
 
-<time datetime="2013-02-25T22:10:00+05:30" pubdate data-updated="true">Feb 25<span>th</span>, 2013</time>
+<time datetime="2013-02-25T22:49:00+05:30" pubdate data-updated="true">Feb 25<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><p>I wrote this code snippet quite a while ago to make it easy to print a
+UIView from a iOS device. Hope it helps you too.</p>
+
+<pre><code>public static class Extensions
+{
+    public static UIImage ToImage (this UIView view)
+    {
+        RectangleF canvasRect = view.Bounds;
+        UIGraphics.BeginImageContextWithOptions (canvasRect.Size, false, 0.0f);
+
+        CGContext ctx = UIGraphics.GetCurrentContext ();
+        ctx.FillRect (canvasRect);
+        view.Layer.RenderInContext (ctx);
+
+        UIImage newImage = UIGraphics.GetImageFromCurrentImageContext ();
+        UIGraphics.EndImageContext ();
+        NSData imgData = newImage.AsPNG ();
+
+        return UIImage.LoadFromData (imgData);
+    }
+}
+</code></pre>
 </div>
 
 
@@ -126,15 +147,21 @@
   
 
 
-<time datetime="2013-02-25T22:10:00+05:30" pubdate data-updated="true">Feb 25<span>th</span>, 2013</time>
+<time datetime="2013-02-25T22:49:00+05:30" pubdate data-updated="true">Feb 25<span>th</span>, 2013</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/c-/'>C#</a>, <a class='category' href='/blog/categories/monotouch/'>MonoTouch</a>, <a class='category' href='/blog/categories/xamarin/'>Xamarin</a>, <a class='category' href='/blog/categories/ios/'>iOS</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://prashantvc.github.com/blog/2013/02/25/hello-world/" data-via="prshntvc" data-counturl="http://prashantvc.github.com/blog/2013/02/25/hello-world/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://prashantvc.github.com/blog/2013/02/25/monotouch-uiview-to-image/" data-via="prshntvc" data-counturl="http://prashantvc.github.com/blog/2013/02/25/monotouch-uiview-to-image/" >Tweet</a>
   
   
   
@@ -145,8 +172,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2013/02/25/hello-world/" title="Previous Post: Hello World">&laquo; Hello World</a>
       
-        <a class="basic-alignment right" href="/blog/2013/02/25/monotouch-uiview-to-image/" title="Next Post: Monotouch: UIView to Image">Monotouch: UIView to Image &raquo;</a>
       
     </p>
   </footer>
