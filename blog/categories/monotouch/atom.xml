@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MonoTouch | Me:ICanWriteCode]]></title>
   <link href="http://prashantvc.github.com/blog/categories/monotouch/atom.xml" rel="self"/>
   <link href="http://prashantvc.github.com/"/>
-  <updated>2013-02-25T23:04:43+05:30</updated>
+  <updated>2013-02-25T23:23:05+05:30</updated>
   <id>http://prashantvc.github.com/</id>
   <author>
     <name><![CDATA[Prashant Cholachagudda]]></name>
@@ -21,25 +21,29 @@
     <content type="html"><![CDATA[<p>I wrote this code snippet quite a while ago to make it easy to print a
 UIView from a iOS device. Hope it helps you too.</p>
 
-<pre><code>public static class Extensions
+<p>``` C# UIViewToImage.cs https://gist.github.com/prashantvc/4657263/raw/a64b8a821b860201e0420c3e735326f80063386a/UIViewToImage.cs View Raw
+public static class Extensions
+{</p>
+
+<pre><code>public static UIImage ToImage (this UIView view)
 {
-    public static UIImage ToImage (this UIView view)
-    {
-        RectangleF canvasRect = view.Bounds;
-        UIGraphics.BeginImageContextWithOptions (canvasRect.Size, false, 0.0f);
+    RectangleF canvasRect = view.Bounds;
+    UIGraphics.BeginImageContextWithOptions (canvasRect.Size, false, 0.0f);
 
-        CGContext ctx = UIGraphics.GetCurrentContext ();
-        ctx.FillRect (canvasRect);
-        view.Layer.RenderInContext (ctx);
+    CGContext ctx = UIGraphics.GetCurrentContext ();
+    ctx.FillRect (canvasRect);
+    view.Layer.RenderInContext (ctx);
 
-        UIImage newImage = UIGraphics.GetImageFromCurrentImageContext ();
-        UIGraphics.EndImageContext ();
-        NSData imgData = newImage.AsPNG ();
+    UIImage newImage = UIGraphics.GetImageFromCurrentImageContext ();
+    UIGraphics.EndImageContext ();
+    NSData imgData = newImage.AsPNG ();
 
-        return UIImage.LoadFromData (imgData);
-    }
+    return UIImage.LoadFromData (imgData);
 }
 </code></pre>
+
+<p>}
+```</p>
 ]]></content>
   </entry>
   
