@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Me:ICanWriteCode]]></title>
+  <link href="http://prashantvc.github.com/atom.xml" rel="self"/>
+  <link href="http://prashantvc.github.com/"/>
+  <updated>2013-02-25T22:14:38+05:30</updated>
+  <id>http://prashantvc.github.com/</id>
+  <author>
+    <name><![CDATA[Prashant Cholachagudda]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://prashantvc.github.com/blog/2013/02/25/hello-world/"/>
+    <updated>2013-02-25T22:10:00+05:30</updated>
+    <id>http://prashantvc.github.com/blog/2013/02/25/hello-world</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
