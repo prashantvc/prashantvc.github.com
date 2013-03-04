@@ -4,7 +4,7 @@
   <title><![CDATA[Me:ICanWriteCode]]></title>
   <link href="http://prashantvc.github.com/atom.xml" rel="self"/>
   <link href="http://prashantvc.github.com/"/>
-  <updated>2013-03-04T20:44:20+05:30</updated>
+  <updated>2013-03-04T20:50:50+05:30</updated>
   <id>http://prashantvc.github.com/</id>
   <author>
     <name><![CDATA[Prashant Cholachagudda]]></name>
@@ -12,15 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[LINQ: Where.FirstOrDefault vs. FirstOrDefault]]></title>
-    <link href="http://prashantvc.github.com/blog/2013/02/27/linq-where-dot-firstordefault-vs-firstordefault/"/>
-    <updated>2013-02-27T21:36:00+05:30</updated>
-    <id>http://prashantvc.github.com/blog/2013/02/27/linq-where-dot-firstordefault-vs-firstordefault</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Monotouch: UIView to Image]]></title>
