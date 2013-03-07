@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Me:ICanWriteCode</title>
+	<title>Where.FirstOrDefault vs FirstOrDefault - Me:ICanWriteCode</title>
 	<meta name="author" content="Prashant Cholachagudda">
 
 	
-	<meta name="description" content="Use of 1. Where(predicate).FirstOrDefault vs. 2. FirstOrDefault(predicate) came up quite a lot during the recent code reviews. While both yields &hellip;">
+	<meta name="description" content="Use of 1. Where(predicate).FirstOrDefault vs. 2. FirstOrDefault(predicate) came up quite a lot during the recent code reviews. While both yields same &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -89,18 +89,9 @@
 </script>
 
 	
-	<div id="content" class="inner">
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/03/07/where-dot-firstordefaulr-vs-firstordefault/">
-		
-			Where.FirstOrDefault vs FirstOrDefault</a>
-	</h2>
-	<div class="entry-content">
-		<p>Use of 1. <code>Where(predicate).FirstOrDefault</code> vs. 2. <code>FirstOrDefault(predicate)</code> came up quite a lot during the recent code reviews. While both yields same result most of the team members preferred using option 2.</p>
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Where.FirstOrDefault vs FirstOrDefault</h2>
+	<div class="entry-content"><p>Use of 1. <code>Where(predicate).FirstOrDefault</code> vs. 2. <code>FirstOrDefault(predicate)</code> came up quite a lot during the recent code reviews. While both yields same result most of the team members preferred using option 2.</p>
 
 <p>I thought <code>FirstOrDefault</code> would execute faster than <code>Where.FirstOrDefault</code>, because the LINQ doesn&#8217;t need to filter the collection before it calls the <code>FirstOrDefault</code>, and I was <strong>wrong!</strong>.</p>
 
@@ -136,10 +127,7 @@
 
 
 <p>I expected the <code>items.Where(predicate).FirstOrDefault()</code> would print all the items in the sequence, but it did not, it returned after printing <code>1 2</code>. So, in the end it doesn&#8217;t matter what method you use the result and execution will be same and any performance difference are highly insignificant.</p>
-
-		
-		
-	</div>
+</div>
 
 
 <div class="meta">
@@ -164,135 +152,32 @@
 
 </div>
 	
-		<div class="comments"><a href="/blog/2013/03/07/where-dot-firstordefaulr-vs-firstordefault//index.html#disqus_thread">Comments</a></div>
+		<div class="comments"><a href="/blog/2013/03/07/where-dot-firstordefaulr-vs-firstordefault/#disqus_thread">Comments</a></div>
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/02/25/monotouch-uiview-to-image/">
-		
-			Monotouch: UIView to Image</a>
-	</h2>
-	<div class="entry-content">
-		<p>I wrote this code snippet quite a while ago to make it easy to print a
-UIView from a iOS device. Hope it helps you too.</p>
-
-<figure class='code'><figcaption><span>UIViewToImage.cs</span><a href='https://gist.github.com/prashantvc/4657263/raw/a64b8a821b860201e0420c3e735326f80063386a/UIViewToImage.cs'>View Raw</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">Extensions</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="n">UIImage</span> <span class="nf">ToImage</span> <span class="p">(</span><span class="k">this</span> <span class="n">UIView</span> <span class="n">view</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">RectangleF</span> <span class="n">canvasRect</span> <span class="p">=</span> <span class="n">view</span><span class="p">.</span><span class="n">Bounds</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">UIGraphics</span><span class="p">.</span><span class="n">BeginImageContextWithOptions</span> <span class="p">(</span><span class="n">canvasRect</span><span class="p">.</span><span class="n">Size</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">CGContext</span> <span class="n">ctx</span> <span class="p">=</span> <span class="n">UIGraphics</span><span class="p">.</span><span class="n">GetCurrentContext</span> <span class="p">();</span>
-</span><span class='line'>        <span class="n">ctx</span><span class="p">.</span><span class="n">FillRect</span> <span class="p">(</span><span class="n">canvasRect</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">view</span><span class="p">.</span><span class="n">Layer</span><span class="p">.</span><span class="n">RenderInContext</span> <span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">UIImage</span> <span class="n">newImage</span> <span class="p">=</span> <span class="n">UIGraphics</span><span class="p">.</span><span class="n">GetImageFromCurrentImageContext</span> <span class="p">();</span>
-</span><span class='line'>        <span class="n">UIGraphics</span><span class="p">.</span><span class="n">EndImageContext</span> <span class="p">();</span>
-</span><span class='line'>        <span class="n">NSData</span> <span class="n">imgData</span> <span class="p">=</span> <span class="n">newImage</span><span class="p">.</span><span class="n">AsPNG</span> <span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">UIImage</span><span class="p">.</span><span class="n">LoadFromData</span> <span class="p">(</span><span class="n">imgData</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-		
-		
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
 	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-25T22:49:00+05:30" pubdate data-updated="true">Feb 25<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/c-/'>C#</a>, <a class='category' href='/blog/categories/monotouch/'>MonoTouch</a>, <a class='category' href='/blog/categories/xamarin/'>Xamarin</a>, <a class='category' href='/blog/categories/ios/'>iOS</a>
-
-
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
-	
-		<div class="comments"><a href="/blog/2013/02/25/monotouch-uiview-to-image//index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/02/25/hello-world/">
-		
-			Hello World</a>
-	</h2>
-	<div class="entry-content">
-		<p>I have moved my <a href="http://prashantvc.wordpress.com">blog</a> from Wordpress! Yey!</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
 
 
 
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-25T22:10:00+05:30" pubdate data-updated="true">Feb 25<span>th</span>, 2013</time></div>
-	<div class="tags">
-
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-	
-		<div class="comments"><a href="/blog/2013/02/25/hello-world//index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav></div>
+</section>
+</div>
 	<footer id="footer" class="inner">Copyright &copy; 2013
 
     Prashant Cholachagudda
@@ -311,7 +196,10 @@ UIView from a iOS device. Hope it helps you too.</p>
       var disqus_shortname = 'prashantvc';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://prashantvc.github.com/blog/2013/03/07/where-dot-firstordefaulr-vs-firstordefault/';
+        var disqus_url = 'http://prashantvc.github.com/blog/2013/03/07/where-dot-firstordefaulr-vs-firstordefault/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

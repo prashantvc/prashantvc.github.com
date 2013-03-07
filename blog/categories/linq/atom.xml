@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: C# | Me:ICanWriteCode]]></title>
-  <link href="http://prashantvc.github.com/blog/categories/c-/atom.xml" rel="self"/>
+  <title><![CDATA[Category: linq | Me:ICanWriteCode]]></title>
+  <link href="http://prashantvc.github.com/blog/categories/linq/atom.xml" rel="self"/>
   <link href="http://prashantvc.github.com/"/>
   <updated>2013-03-07T17:45:44+05:30</updated>
   <id>http://prashantvc.github.com/</id>
@@ -45,40 +45,6 @@ items.FirstOrDefault(predicate);
 <p>```</p>
 
 <p>I expected the <code>items.Where(predicate).FirstOrDefault()</code> would print all the items in the sequence, but it did not, it returned after printing <code>1 2</code>. So, in the end it doesn't matter what method you use the result and execution will be same and any performance difference are highly insignificant.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Monotouch: UIView to Image]]></title>
-    <link href="http://prashantvc.github.com/blog/2013/02/25/monotouch-uiview-to-image/"/>
-    <updated>2013-02-25T22:49:00+05:30</updated>
-    <id>http://prashantvc.github.com/blog/2013/02/25/monotouch-uiview-to-image</id>
-    <content type="html"><![CDATA[<p>I wrote this code snippet quite a while ago to make it easy to print a
-UIView from a iOS device. Hope it helps you too.</p>
-
-<p>``` csharp UIViewToImage.cs https://gist.github.com/prashantvc/4657263/raw/a64b8a821b860201e0420c3e735326f80063386a/UIViewToImage.cs View Raw
-public static class Extensions
-{</p>
-
-<pre><code>public static UIImage ToImage (this UIView view)
-{
-    RectangleF canvasRect = view.Bounds;
-    UIGraphics.BeginImageContextWithOptions (canvasRect.Size, false, 0.0f);
-
-    CGContext ctx = UIGraphics.GetCurrentContext ();
-    ctx.FillRect (canvasRect);
-    view.Layer.RenderInContext (ctx);
-
-    UIImage newImage = UIGraphics.GetImageFromCurrentImageContext ();
-    UIGraphics.EndImageContext ();
-    NSData imgData = newImage.AsPNG ();
-
-    return UIImage.LoadFromData (imgData);
-}
-</code></pre>
-
-<p>}
-```</p>
 ]]></content>
   </entry>
   
