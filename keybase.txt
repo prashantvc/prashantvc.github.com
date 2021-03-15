@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/prashantvc
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://prashantvc.com
+  * I am prashantvc (https://keybase.io/prashantvc) on keybase.
+  * I have a public key with fingerprint 6F08 8582 8071 1931 6292  CB4F 7E3E 2432 8AF9 9C60
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "010173e5a1bf43968a5e0eb144a02fd2805559a6ad569373b7035db267e71fa282500a",
+      "fingerprint": "6f088582807119316292cb4f7e3e24328af99c60",
+      "host": "keybase.io",
+      "key_id": "7e3e24328af99c60",
+      "kid": "010173e5a1bf43968a5e0eb144a02fd2805559a6ad569373b7035db267e71fa282500a",
+      "uid": "e6f6796efbeadaa50a1c5f8f762b9c19",
+      "username": "prashantvc"
+    },
+    "service": {
+      "hostname": "prashantvc.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1615797561,
+  "expire_in": 157680000,
+  "prev": "5bfb35c8c63fd33daee1ca57267d8d4d33c72094eb332039bd4a6a7f582f0e90",
+  "seqno": 26,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMInAnicrVJfSBRBHL4zresoKvpLaOA+lJl5O7s7s7sHCSWh1IMZFRXRObM7662n
+u+fd3qnoQX+o7MFeoj8UdZqm1UOhYCRUavaSRVER+eBLpZUUURkUIdWs1FM9Ni/D
+/Ob7vt833/zuzp3h8Xu/D8452tH9rtV7f/BswlNRlqM2csTWG7hgIxeh0xut1mnc
+CUVMnQtyPOCBLFKIATEkUUUKhpSnBEgS5gVDFxQeQqhihHWIVFEWicyLUCcCkqkM
+DCwoAuR5zBVwhmlV0lg0ZloOk0UGryhQYXQZAFUESFAFjUiGTEUqSKKgYENVNcQz
+YtiOuwxmjuA4LTRtVmOH0LS9f+D/s+/EtBxFBpJVRA1CsY4x5DHQoKEYMhKIqgHV
+BcZpzMI1lKGjMRwPY8tJalyqgGP1pKlRN1r3LX9hCjW7hvGjMduxNbua3YUdJxp0
+qU5D1MXWURL6rRIipqWzKBkhSWNx07a4IGBIzTFdWYAAlFUZIlDA0fqoGaMh00VA
+GSk8W24bmmSSkBhEhJqiIdHQRVHHlAINQ5kFoCu6xEqaLPCqRIkoCryoEl1iYckG
++zODp6obdJzWWjYXFBDziSuZZtystLCTiFEudWdgT6bH6/fMzMpwZ8zjnz3/z+RN
+9vk8Zw+3luTaWw/m+nfckDyTGfpn6/n2gS3eupOX8gJjS59NtoX7JyL5LQuK3h4b
+6rzia1qWXepVe9PSrKJzxevWBpKdZYXbusaV8Z+1+cO3pjYNpfc9DLUHS1aGFgfW
+nEmXfMKVy0fGPz41m+tHek4Vz5vEVzNK+19cXpnavALe251jXl/2sn7eh6Kmm492
+jqaqnY7RjOy8iqq1P8q/gFfG+YVlXUuyTkfWHxq7GBh5nOt9M/G6LVKaPrHw9NJT
+rQ8eza760DwcarngK64D6Re+DT1T/cc572rfLv/GA4sabrdnfl3V1/u+ooeUwwaI
+tG6yZW840X2t/MmT0f1HHqRT3xK/AEHMPE4=
+=Gfpg
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/prashantvc
+
+==================================================================
